@@ -11,6 +11,7 @@ class LoginInteractor : LoginInteractorInterface {
         }
         else if(TextUtils.isEmpty(passwrd)){
             loginFinish.onPasswordError()
+            return
         }
 
     }

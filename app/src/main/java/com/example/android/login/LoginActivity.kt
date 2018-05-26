@@ -17,8 +17,6 @@ public class LoginActivity : AppCompatActivity(), LoginViewInterface {
 
 
     lateinit var loginPresenter: LoginPresenter
-
-
     @BindView(R.id.progress)
     var progressBar: ProgressBar? = null
     @BindView(R.id.email)
@@ -34,7 +32,8 @@ public class LoginActivity : AppCompatActivity(), LoginViewInterface {
     }
 
     private fun initPresenter() {
-        loginPresenter = LoginPresenter(this, LoginInteractor())
+        loginPresenter = LoginPresenter()
+        loginPresenter.onAttach(this,LoginInteractor())
     }
 
     @OnClick(R.id.btnSignIn)
@@ -66,5 +65,8 @@ public class LoginActivity : AppCompatActivity(), LoginViewInterface {
         progressBar?.visibility = View.GONE
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        loginPresenter.onDestroy()
+    }
 }
