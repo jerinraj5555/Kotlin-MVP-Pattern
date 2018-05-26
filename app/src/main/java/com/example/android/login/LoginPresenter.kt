@@ -14,7 +14,7 @@ class LoginPresenter (): LoginPresenterInterface,
 
 
     override fun onLoginSuccess() {
-
+        logInViewInterface?.navigateToHomeScreen()
     }
     override fun onLoginFailure() {
         logInViewInterface?.setPasswordError()
@@ -30,7 +30,7 @@ class LoginPresenter (): LoginPresenterInterface,
 
     }
     override fun validateUserCredentails(uname: String, pwd: String) {
-        logInInteractor?.validateUserName(uname,toString(),this)
+        logInInteractor?.validateUserName(uname,pwd,this)
     }
 
     override fun onDestroy() {
