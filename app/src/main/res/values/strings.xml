@@ -14,4 +14,5 @@
         completions."
     </string>
     <string name="title_activity_login2">Sign in</string>
+    <string name="login_failure">Login Failure</string>
 </resources>
